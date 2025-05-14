@@ -1,0 +1,191 @@
+:root {
+  /* Luxury color palette */
+  --background: 220 33% 98%;
+  --foreground: 220 10% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 220 10% 3.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 220 10% 3.9%;
+  --primary: 220 47% 15%;
+  --primary-foreground: 220 10% 98%;
+  --secondary: 220 17% 93%;
+  --secondary-foreground: 220 10% 3.9%;
+  --muted: 220 17% 93%;
+  --muted-foreground: 220 10% 46.1%;
+  --accent: 220 17% 93%;
+  --accent-foreground: 220 10% 3.9%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 220 13% 90%;
+  --input: 220 13% 90%;
+  --ring: 220 47% 15%;
+  --radius: 0.5rem;
+
+  /* Luxury gradients */
+  --gradient-royal: linear-gradient(
+    135deg,
+    hsl(var(--primary)) 0%,
+    hsl(var(--primary)/0.7) 100%
+  );
+
+  --gradient-gold: linear-gradient(
+    135deg,
+    hsl(45 80% 60%) 0%,
+    hsl(35 80% 60%) 50%,
+    hsl(25 80% 60%) 100%
+  );
+
+  /* Luxury shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.1);
+
+  /* Luxury glass effect */
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.dark {
+  --background: 220 47% 5%;
+  --foreground: 220 10% 98%;
+  --card: 220 47% 7%;
+  --card-foreground: 220 10% 98%;
+  --popover: 220 47% 7%;
+  --popover-foreground: 220 10% 98%;
+  --primary: 220 10% 98%;
+  --primary-foreground: 220 47% 15%;
+  --secondary: 220 47% 15%;
+  --secondary-foreground: 220 10% 98%;
+  --muted: 220 47% 15%;
+  --muted-foreground: 220 10% 64.9%;
+  --accent: 220 47% 15%;
+  --accent-foreground: 220 10% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 220 10% 98%;
+  --border: 220 47% 15%;
+  --input: 220 47% 15%;
+  --ring: 220 10% 83.9%;
+
+  /* Dark mode glass effect */
+  --glass-bg: rgba(0, 0, 0, 0.2);
+  --glass-border: rgba(255, 255, 255, 0.05);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Luxury Components */
+.glass-luxury {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.card-luxury {
+  @apply relative overflow-hidden rounded-lg border bg-card p-6 transition-all duration-300;
+  box-shadow: var(--shadow-md);
+}
+
+.card-luxury:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-luxury {
+  @apply relative overflow-hidden rounded-md bg-primary px-6 py-3 text-primary-foreground transition-all duration-300;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-luxury:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.heading-luxury {
+  @apply text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl;
+  background: var(--gradient-royal);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subheading-luxury {
+  @apply text-xl font-medium text-muted-foreground md:text-2xl;
+  letter-spacing: -0.01em;
+}
+
+/* Luxury Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.animate-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-shine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transform: translateX(-100%);
+  animation: shine 3s infinite;
+}
+
+/* Luxury Hover Effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.hover-glow {
+  transition: box-shadow 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(var(--primary), 0.2);
+}
+
+/* Luxury Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary));
+}

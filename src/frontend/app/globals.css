@@ -1,0 +1,214 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Refined color palette for luxury brand */
+  --background: 220 33% 98%;
+  --foreground: 220 10% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 220 10% 3.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 220 10% 3.9%;
+  --primary: 220 47% 15%;
+  --primary-foreground: 220 10% 98%;
+  --secondary: 220 17% 93%;
+  --secondary-foreground: 220 10% 3.9%;
+  --muted: 220 17% 93%;
+  --muted-foreground: 220 10% 46.1%;
+  --accent: 220 17% 93%;
+  --accent-foreground: 220 10% 3.9%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 220 13% 90%;
+  --input: 220 13% 90%;
+  --ring: 220 47% 15%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 220 47% 5%;
+  --foreground: 220 10% 98%;
+  --card: 220 47% 7%;
+  --card-foreground: 220 10% 98%;
+  --popover: 220 47% 7%;
+  --popover-foreground: 220 10% 98%;
+  --primary: 220 10% 98%;
+  --primary-foreground: 220 47% 15%;
+  --secondary: 220 47% 15%;
+  --secondary-foreground: 220 10% 98%;
+  --muted: 220 47% 15%;
+  --muted-foreground: 220 10% 64.9%;
+  --accent: 220 47% 15%;
+  --accent-foreground: 220 10% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 220 10% 98%;
+  --border: 220 47% 15%;
+  --input: 220 47% 15%;
+  --ring: 220 10% 83.9%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Luxury Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Premium Glass Effect */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Elegant Gradient Text */
+.gradient-text {
+  @apply bg-clip-text text-transparent;
+  background-image: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary)/0.5) 100%);
+}
+
+/* Luxury Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary));
+}
+
+/* Premium Card Effects */
+.premium-card {
+  @apply relative overflow-hidden rounded-lg border bg-card p-6 transition-all duration-300;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.premium-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.premium-card:hover::before {
+  left: 100%;
+}
+
+.premium-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Elegant Button Styles */
+.btn-luxury {
+  @apply relative overflow-hidden rounded-md bg-primary px-6 py-3 text-primary-foreground transition-all duration-300;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-luxury::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transform: rotate(45deg);
+  transition: 0.5s;
+}
+
+.btn-luxury:hover::after {
+  transform: rotate(45deg) translate(50%, 50%);
+}
+
+/* Elegant Typography */
+.heading-luxury {
+  @apply text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl;
+  letter-spacing: -0.02em;
+}
+
+.subheading-luxury {
+  @apply text-xl font-medium text-muted-foreground md:text-2xl;
+  letter-spacing: -0.01em;
+}
+
+/* Premium Section Styles */
+.section-luxury {
+  @apply relative overflow-hidden py-20 md:py-32;
+}
+
+.section-luxury::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.03),
+    transparent
+  );
+  transform: translateY(-100%);
+  animation: shine 8s infinite;
+}
+
+@keyframes shine {
+  0% { transform: translateY(-100%); }
+  50% { transform: translateY(100%); }
+  100% { transform: translateY(-100%); }
+}
+
+/* Premium Image Effects */
+.image-luxury {
+  @apply relative overflow-hidden rounded-lg;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.image-luxury img {
+  @apply transition-all duration-700;
+}
+
+.image-luxury:hover img {
+  transform: scale(1.05);
+}
